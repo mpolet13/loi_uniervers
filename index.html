@@ -17,7 +17,7 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #fefcf5; /* blanc cassé */
+      background-color: #fefcf5;
       color: #1a1a2e;
       line-height: 1.5;
     }
@@ -28,7 +28,6 @@
       padding: 0 24px;
     }
 
-    /* Couleurs principales */
     :root {
       --violet-profond: #3c2a5c;
       --bleu-nuit: #0f172a;
@@ -37,7 +36,6 @@
       --gris-doux: #e9e5dd;
     }
 
-    /* Boutons */
     .btn-primary {
       display: inline-flex;
       align-items: center;
@@ -75,16 +73,7 @@
       background: var(--violet-profond);
       color: white;
     }
-    .btn-gold {
-      background: linear-gradient(135deg, var(--dore), #b8960c);
-      color: var(--bleu-nuit);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-    .btn-gold:hover {
-      background: linear-gradient(135deg, #e4c550, #c6a00a);
-    }
 
-    /* Navigation */
     nav {
       padding: 20px 0;
       border-bottom: 1px solid rgba(60,42,92,0.1);
@@ -111,7 +100,6 @@
       letter-spacing: -0.5px;
     }
 
-    /* Hero */
     .hero {
       padding: 60px 0 40px;
       background: radial-gradient(circle at 10% 20%, rgba(60,42,92,0.05), rgba(15,23,42,0.02));
@@ -154,7 +142,6 @@
       transform: translateY(-8px);
     }
 
-    /* Section générale */
     section {
       padding: 80px 0;
     }
@@ -176,58 +163,68 @@
       background-color: var(--gris-doux);
     }
 
-    /* Grille des lois */
-    .laws-grid {
+    /* Nouvelle grille des découvertes (5 cadrans) */
+    .discovery-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
       margin: 48px 0;
     }
-    .law-card {
+    .discovery-card {
       background: white;
-      padding: 28px 20px;
+      padding: 32px 24px;
       border-radius: 28px;
       text-align: center;
       box-shadow: 0 12px 24px -12px rgba(0,0,0,0.08);
       border: 1px solid rgba(212,175,55,0.3);
-      transition: all 0.2s;
+      transition: transform 0.2s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
     }
-    .law-card i {
+    .discovery-card i {
       font-size: 2.8rem;
       color: var(--dore);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
-    .law-card h3 {
-      font-size: 1.3rem;
-      margin-bottom: 12px;
+    .discovery-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 16px;
       color: var(--violet-profond);
     }
+    .discovery-card p {
+      color: #4a4a5a;
+      font-size: 1rem;
+      line-height: 1.5;
+    }
 
-    /* Différences */
+    /* Features aérée */
     .features-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      margin: 40px 0;
+      gap: 40px;
+      margin: 50px 0;
     }
     .feature-item {
       background: white;
-      padding: 24px;
-      border-radius: 24px;
+      padding: 32px 20px;
+      border-radius: 28px;
       text-align: center;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+      transition: transform 0.2s;
     }
     .feature-item i {
-      font-size: 2rem;
+      font-size: 2.2rem;
       color: var(--dore);
-      margin-bottom: 16px;
+      margin-bottom: 20px;
+      display: block;
     }
     .feature-item span {
       font-weight: 600;
       font-size: 1.1rem;
+      line-height: 1.4;
     }
 
-    /* Bio */
     .bio-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -249,7 +246,6 @@
       color: #2c2c3a;
     }
 
-    /* Galerie pages */
     .pages-gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -282,7 +278,6 @@
       border-bottom: 2px solid var(--dore);
     }
 
-    /* Thèmes */
     .themes-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -304,7 +299,6 @@
       margin-right: 8px;
     }
 
-    /* CTA commande */
     .cta-commande {
       background: linear-gradient(135deg, var(--bleu-nuit), var(--violet-profond));
       color: white;
@@ -327,7 +321,6 @@
       font-size: 1.2rem;
     }
 
-    /* Footer */
     footer {
       background: var(--bleu-nuit);
       color: #aaa;
@@ -381,38 +374,51 @@
     </div>
   </section>
 
-  <!-- SECTION 1 : AVENTURE INTÉRIEURE -->
+  <!-- SECTION 1 : AVENTURE INTÉRIEURE (texte modifié, plus de “12 lois”) -->
   <div class="container">
     <div style="background: var(--gris-doux); border-radius: 48px; padding: 60px 40px; margin: 40px 0;">
       <h2 class="section-title">Bienvenue dans ton aventure intérieure</h2>
       <p style="max-width: 800px; margin: 0 auto; text-align: center; font-size: 1.15rem; line-height: 1.7;">
         Chaque adolescent traverse des périodes de doute, de changement et de questionnement.<br><br>
         Ce livre a été conçu pour t’aider à mieux comprendre tes émotions, tes pensées et les mécanismes qui influencent ta vie.<br><br>
-        À travers 12 lois universelles expliquées simplement, tu découvriras des outils concrets pour développer ta confiance, prendre de meilleures décisions et avancer vers tes objectifs.
+        À travers des clés simples et puissantes – lois universelles, gestion de l’énergie, maîtrise des émotions, créativité et motivation – tu découvriras des outils concrets pour développer ta confiance, prendre de meilleures décisions et avancer vers tes objectifs.
       </p>
     </div>
   </div>
 
-  <!-- SECTION 2 : LES 12 LOIS -->
+  <!-- SECTION 2 : CE QUE TU DÉCOUVRIRAS DANS LE LIVRE (5 CADRANS) -->
   <div class="container">
     <h2 class="section-title">Ce que tu découvriras dans le livre</h2>
-    <div class="laws-grid">
-      <div class="law-card"><i class="fas fa-globe"></i><h3>Loi de l’Unité Divine</h3></div>
-      <div class="law-card"><i class="fas fa-magnet"></i><h3>Loi de l’Attraction</h3></div>
-      <div class="law-card"><i class="fas fa-balance-scale"></i><h3>Loi de Compensation</h3></div>
-      <div class="law-card"><i class="fas fa-yin-yang"></i><h3>Loi de Polarité</h3></div>
-      <div class="law-card"><i class="fas fa-water"></i><h3>Loi du Rythme</h3></div>
-      <div class="law-card"><i class="fas fa-seedling"></i><h3>Loi de Cause à Effet</h3></div>
-      <div class="law-card"><i class="fas fa-waveform"></i><h3>Loi de la Vibration</h3></div>
-      <div class="law-card"><i class="fas fa-venus-mars"></i><h3>Loi du Genre</h3></div>
-      <div class="law-card"><i class="fas fa-infinity"></i><h3>Loi de la Relativité</h3></div>
-      <div class="law-card"><i class="fas fa-heart"></i><h3>Loi de l’Énergie</h3></div>
-      <div class="law-card"><i class="fas fa-sun"></i><h3>Loi de l’Action</h3></div>
-      <div class="law-card"><i class="fas fa-dove"></i><h3>Loi de la Transmutation</h3></div>
+    <div class="discovery-grid">
+      <div class="discovery-card">
+        <i class="fas fa-globe-asia"></i>
+        <h3>📘 Les lois de l’univers</h3>
+        <p>Expliquées en langage simple et adapté aux ados, avec des illustrations tirées des animés (Pokémon, Dragon Ball…).</p>
+      </div>
+      <div class="discovery-card">
+        <i class="fas fa-bolt"></i>
+        <h3>⚡ Mode d’emploi et manipulation de l’énergie</h3>
+        <p>Apprends à ressentir, diriger et utiliser ton énergie au quotidien.</p>
+      </div>
+      <div class="discovery-card">
+        <i class="fas fa-heart"></i>
+        <h3>💖 La gestion des émotions</h3>
+        <p>Reconnaître, accueillir et transformer tes émotions pour mieux vivre.</p>
+      </div>
+      <div class="discovery-card">
+        <i class="fas fa-lightbulb"></i>
+        <h3>🎨 L’utilisation de ton imagination et de ta créativité</h3>
+        <p>Des techniques pour libérer ton potentiel créatif et imaginer ta meilleure vie.</p>
+      </div>
+      <div class="discovery-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>🚀 Motivation et transmutation</h3>
+        <p>Et bien d’autres outils nécessaires au développement personnel adolescent.</p>
+      </div>
     </div>
   </div>
 
-  <!-- SECTION 3 : POURQUOI CE LIVRE EST DIFFÉRENT -->
+  <!-- SECTION 3 : POURQUOI CE LIVRE EST DIFFÉRENT (version aérée) -->
   <div class="bg-soft">
     <div class="container">
       <h2 class="section-title">Pourquoi ce livre est différent ?</h2>
@@ -448,8 +454,8 @@
       <div class="pages-gallery">
         <div class="page-thumb"><img src="image/mainPage.jpeg" alt="Couverture"><p>Couverture</p></div>
         <div class="page-thumb"><img src="image/extrai1.jpeg" alt="Page intérieure 1"><p>Introduction</p></div>
-        <div class="page-thumb"><img src="image/extrai2.jpeg" alt="Page intérieure 2"><p></p></div>
-        <div class="page-thumb"><img src="image/extrai3.jpeg" alt="Page intérieure 3"><p></p></div>
+        <div class="page-thumb"><img src="image/extrai2.jpeg" alt="Page intérieure 2"><p>Exercice pratique</p></div>
+        <div class="page-thumb"><img src="image/extrai3.jpeg" alt="Page intérieure 3"><p>Illustration inspirante</p></div>
         <div class="page-thumb"><img src="image/dosImage.jpeg" alt="Dos"><p>Dos & quatrième</p></div>
       </div>
       <div class="pdf-link">
