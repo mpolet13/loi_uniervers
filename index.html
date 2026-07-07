@@ -3,6 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="image/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+  
+  <!-- Méta-description (SEO) -->
+  <meta name="description" content="Les Lois de l'Univers – Version Ado : un guide de développement personnel pour adolescents. Comprends tes émotions, développe ta confiance et découvre les lois universelles qui façonnent ta vie.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Les Lois de l'Univers – Version Ado | Irène Gwladys Cotchoing">
+  <meta property="og:description" content="Un guide de développement personnel pour adolescents. Comprends tes émotions, développe ta confiance et découvre les lois universelles qui façonnent ta vie.">
+  <meta property="og:image" content="https://votresite.com/image/mainPage.jpeg">
+  <meta property="og:url" content="https://votresite.com">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Les Lois de l'Univers – Version Ado">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Les Lois de l'Univers – Version Ado">
+  <meta name="twitter:description" content="Un guide de développement personnel pour adolescents.">
+  <meta name="twitter:image" content="https://votresite.com/image/mainPage.jpeg">
+
   <title>Les Lois de l'Univers – Version Ado | Irène Gwladys Cotchoing</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -20,7 +42,68 @@
       --gris:         #F0EAF8;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--texte); line-height: 1.6; font-size: 16px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--creme); color: var(--texte); line-height: 1.6; font-size: 16px; overflow-x: hidden; }
+
+    /* ── SÉCURITÉ POUR TOUTES LES IMAGES ── */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ════════════════════════════════════════════════ */
+    /*              ANIMATIONS GLOBALES                 */
+    /* ════════════════════════════════════════════════ */
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulse2 {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    @keyframes shimmer {
+      0% { background-position: -200% center; }
+      100% { background-position: 200% center; }
+    }
+    @keyframes glowPulse {
+      0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.2); }
+      50% { box-shadow: 0 0 40px rgba(201,168,76,0.5); }
+    }
+    @keyframes rotateSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes scaleIn {
+      from { transform: scale(0.8); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    /* ── CLASSES D'ANIMATION AU SCROLL ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.1s; }
+    .fade-in-delay-2 { transition-delay: 0.2s; }
+    .fade-in-delay-3 { transition-delay: 0.3s; }
+    .fade-in-delay-4 { transition-delay: 0.4s; }
+    .fade-in-delay-5 { transition-delay: 0.5s; }
+    .fade-in-delay-6 { transition-delay: 0.6s; }
 
     /* ── NAV ── */
     nav {
@@ -30,6 +113,7 @@
       padding: 16px 48px;
       position: sticky; top: 0; z-index: 99;
       display: flex; justify-content: space-between; align-items: center;
+      animation: fadeIn 0.6s ease;
     }
     .logo-text { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--violet); }
     .logo-text span { color: var(--or); }
@@ -39,12 +123,22 @@
       padding: 11px 28px; font-size: 0.9rem; font-weight: 600;
       cursor: pointer; font-family: 'DM Sans', sans-serif;
       text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
-      transition: background 0.2s;
+      transition: all 0.3s ease;
     }
-    .nav-btn:hover { background: var(--violet-mid); }
+    .nav-btn:hover { 
+      background: var(--violet-mid); 
+      transform: scale(1.05);
+      box-shadow: 0 4px 20px rgba(45,27,94,0.3);
+    }
 
     /* ── OR DIVIDER ── */
-    .or-divider { height: 3px; background: linear-gradient(90deg, transparent, var(--or), transparent); border: none; margin: 0; }
+    .or-divider { 
+      height: 3px; 
+      background: linear-gradient(90deg, transparent, var(--or), transparent); 
+      border: none; 
+      margin: 0;
+      animation: fadeIn 1s ease;
+    }
 
     /* ── HERO ── */
     .hero {
@@ -71,12 +165,14 @@
       width: 500px; height: 500px; border-radius: 50%;
       background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 65%);
       pointer-events: none;
+      animation: float 8s ease-in-out infinite;
     }
     .hero-glow-right {
       position: absolute; right: -60px; bottom: -80px;
       width: 380px; height: 380px; border-radius: 50%;
       background: radial-gradient(circle, rgba(92,63,160,0.4) 0%, transparent 70%);
       pointer-events: none;
+      animation: float 10s ease-in-out infinite reverse;
     }
     .hero-inner {
       max-width: 1200px; margin: 0 auto;
@@ -93,24 +189,35 @@
       font-size: 0.75rem; font-weight: 600;
       letter-spacing: 1.8px; text-transform: uppercase;
       padding: 7px 18px; border-radius: 40px; margin-bottom: 28px;
+      animation: fadeIn 1s ease 0.3s both;
     }
     .hero-text h1 {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.8rem, 5vw, 4.4rem);
       font-weight: 900; color: #fff;
       line-height: 1.1; margin-bottom: 4px;
+      animation: fadeInUp 1s ease 0.4s both;
     }
     .hero-text h1 em {
       color: var(--or-light); font-style: italic;
       display: block; font-size: clamp(2rem, 3.5vw, 3.2rem);
       margin-top: 4px;
+      background: linear-gradient(90deg, var(--or-light), #FFD700, var(--or-light));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
     }
     .hero-sub {
       color: rgba(255,255,255,0.72);
       font-size: 1.1rem; max-width: 480px;
       margin: 24px 0 36px; line-height: 1.75; font-weight: 300;
+      animation: fadeInUp 1s ease 0.6s both;
     }
-    .hero-actions { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+    .hero-actions { 
+      display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+      animation: fadeInUp 1s ease 0.8s both;
+    }
     .btn-hero {
       display: inline-flex; align-items: center; gap: 10px;
       background: var(--or); color: var(--encre);
@@ -118,28 +225,41 @@
       font-weight: 700; font-size: 1rem;
       text-decoration: none;
       font-family: 'DM Sans', sans-serif; border: none; cursor: pointer;
-      transition: background 0.2s, transform 0.15s;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 28px rgba(201,168,76,0.35);
     }
-    .btn-hero:hover { background: var(--or-light); transform: translateY(-2px); }
+    .btn-hero:hover { 
+      background: var(--or-light); 
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.5);
+    }
     .hero-price-label { color: rgba(255,255,255,0.5); font-size: 0.9rem; }
     .hero-price-label strong { color: var(--or-light); font-size: 1.15rem; display: block; }
 
-    /* Book visual */
+    /* ── BOOK VISUAL ── */
     .hero-visual {
       position: relative;
       display: flex; justify-content: center; align-items: center;
+      animation: fadeIn 1s ease 0.5s both;
     }
     .hero-book-wrap {
       position: relative;
       filter: drop-shadow(0 40px 60px rgba(0,0,0,0.55));
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .hero-book-wrap:hover {
+      transform: scale(1.05) rotate(-2deg);
     }
     .hero-cover {
-      width: 300px; height: auto;
+      width: 300px;
+      height: auto;
       border-radius: 16px;
       display: block;
       position: relative; z-index: 2;
       border: 3px solid rgba(201,168,76,0.5);
+      pointer-events: none;
+      transition: all 0.4s ease;
     }
     .hero-book-wrap::before {
       content: '';
@@ -161,6 +281,12 @@
       font-weight: 700; font-size: 0.72rem; text-align: center;
       line-height: 1.2; padding: 6px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+      pointer-events: none;
+      animation: pulse2 2.5s ease-in-out infinite;
+      transition: all 0.3s ease;
+    }
+    .hero-book-wrap:hover .badge-pages {
+      transform: scale(1.1) rotate(-10deg);
     }
     .badge-pages strong { font-size: 1.2rem; display: block; }
     .badge-amazon {
@@ -170,11 +296,14 @@
       font-size: 0.78rem; font-weight: 700;
       display: flex; align-items: center; gap: 6px;
       box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+    .hero-book-wrap:hover .badge-amazon {
+      transform: scale(1.05);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
     }
     .badge-amazon i { color: #FF9900; }
-
-    /* ── CONTAINER ── */
-    .container { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
 
     /* ── SECTIONS ── */
     .section { padding: 80px 48px; }
@@ -195,50 +324,68 @@
     .bg-gris { background: var(--gris); }
 
     /* ── INTRO ── */
-    .intro-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px;
-      max-width: 1000px; margin: 0 auto;
-    }
     .intro-bloc {
       background: white;
       border: 1px solid rgba(201,168,76,0.25);
       border-radius: 24px; padding: 36px 32px;
       box-shadow: 0 4px 24px rgba(45,27,94,0.06);
       grid-column: 1 / -1;
+      transition: all 0.4s ease;
+    }
+    .intro-bloc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(45,27,94,0.12);
     }
     .intro-bloc p { font-size: 1.05rem; line-height: 1.9; color: var(--texte); }
 
     /* ── DISCOVERY CARDS ── */
-    .disc-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px; margin-top: 36px;
-      max-width: 1000px; margin-left: auto; margin-right: auto;
-    }
+    .disc-row { display: grid; gap: 16px; max-width: 1000px; margin: 0 auto; width: 100%; }
+    .disc-row-top { grid-template-columns: repeat(3, 1fr); margin-bottom: 16px; }
+    .disc-row-bot { grid-template-columns: repeat(2, 1fr); max-width: 660px; }
     .disc-card {
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(201,168,76,0.25);
       border-radius: 20px; padding: 28px 22px;
       display: flex; flex-direction: column; gap: 14px;
-      transition: background 0.2s;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
+      position: relative;
+      overflow: hidden;
     }
-    .disc-card:hover { background: rgba(255,255,255,0.12); }
+    .disc-card::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .disc-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+      border-color: var(--or);
+    }
+    .disc-card:hover::after { opacity: 1; }
     .disc-icon {
       width: 52px; height: 52px; min-width: 52px;
       background: rgba(201,168,76,0.15);
       border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       font-size: 1.4rem; color: var(--or-light);
+      transition: all 0.4s ease;
     }
-    .disc-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: white; }
+    .disc-card:hover .disc-icon {
+      transform: scale(1.15) rotate(-8deg);
+      background: rgba(201,168,76,0.3);
+    }
+    .disc-card h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: white; transition: color 0.3s ease; }
+    .disc-card:hover h3 { color: var(--or-light); }
     .disc-card p { font-size: 0.9rem; color: rgba(255,255,255,0.65); line-height: 1.6; }
-    .disc-card:nth-child(4), .disc-card:nth-child(5) {
-      grid-column: auto;
-    }
-    /* Center last 2 cards */
-    .disc-grid-wrap { display: flex; flex-direction: column; gap: 0; }
-    .disc-row { display: grid; gap: 16px; max-width: 1000px; margin: 0 auto; width: 100%; }
-    .disc-row-top { grid-template-columns: repeat(3, 1fr); margin-bottom: 16px; }
-    .disc-row-bot { grid-template-columns: repeat(2, 1fr); max-width: 660px; }
 
     /* ── FEATURES ── */
     .feat-grid {
@@ -252,10 +399,24 @@
       border-radius: 20px; padding: 28px 16px;
       text-align: center;
       box-shadow: 0 2px 12px rgba(45,27,94,0.05);
-      transition: transform 0.2s;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: default;
     }
-    .feat-item:hover { transform: translateY(-4px); }
-    .feat-icon { font-size: 1.6rem; color: var(--or); margin-bottom: 12px; display: block; }
+    .feat-item:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 16px 40px rgba(45,27,94,0.15);
+      border-color: var(--or);
+    }
+    .feat-icon { 
+      font-size: 1.6rem; 
+      color: var(--or); 
+      margin-bottom: 12px; 
+      display: block;
+      transition: all 0.4s ease;
+    }
+    .feat-item:hover .feat-icon {
+      transform: scale(1.2) rotate(-10deg);
+    }
     .feat-item span { font-size: 0.88rem; font-weight: 600; color: var(--violet); line-height: 1.3; display: block; }
 
     /* ── BIO ── */
@@ -264,15 +425,27 @@
       gap: 64px; align-items: center;
       max-width: 1000px; margin: 0 auto;
     }
-    .bio-img-wrap { position: relative; }
+    .bio-img-wrap {
+      position: relative;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .bio-img-wrap:hover { transform: scale(1.03); }
     .author-avatar {
-      width: 100%; max-width: 300px;
+      width: 100%;
+      max-width: 300px;
       aspect-ratio: 3/4;
-      object-fit: cover; object-position: top;
+      object-fit: contain;
       border-radius: 24px;
       border: 4px solid var(--or);
       box-shadow: 0 20px 48px rgba(45,27,94,0.22);
       display: block;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+    .bio-img-wrap:hover .author-avatar {
+      border-color: var(--or-light);
+      box-shadow: 0 24px 60px rgba(45,27,94,0.35);
     }
     .bio-img-wrap::before {
       content: '';
@@ -280,6 +453,12 @@
       border-radius: 24px;
       border: 2px solid rgba(201,168,76,0.25);
       z-index: -1;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+    .bio-img-wrap:hover::before {
+      top: 8px; left: 8px; right: -8px; bottom: -8px;
+      border-color: rgba(201,168,76,0.5);
     }
     .author-name { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--violet); margin-bottom: 6px; }
     .author-role { font-size: 0.8rem; letter-spacing: 1.2px; text-transform: uppercase; color: var(--or); font-weight: 600; margin-bottom: 24px; }
@@ -289,21 +468,43 @@
       padding-left: 20px; margin-top: 24px;
       font-style: italic; color: var(--violet-mid);
       font-size: 0.95rem; line-height: 1.7;
+      transition: all 0.4s ease;
+    }
+    .bio-quote:hover {
+      border-left-color: var(--or-light);
+      padding-left: 28px;
     }
 
-    /* ── MOT AUTEURE ── */
+    /* ── QUOTE CARD ── */
     .quote-card {
       background: white; border-radius: 28px;
       padding: 48px 52px;
       box-shadow: 0 4px 32px rgba(45,27,94,0.08);
       border: 1px solid rgba(201,168,76,0.2);
       max-width: 760px; margin: 0 auto;
+      transition: all 0.4s ease;
     }
-    .quote-mark { font-family: 'Playfair Display', serif; font-size: 5rem; color: var(--or-light); line-height: 0.5; display: block; margin-bottom: 20px; font-weight: 700; }
+    .quote-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(45,27,94,0.15);
+    }
+    .quote-mark { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 5rem; 
+      color: var(--or-light); 
+      line-height: 0.5; 
+      display: block; 
+      margin-bottom: 20px; 
+      font-weight: 700;
+      transition: all 0.4s ease;
+    }
+    .quote-card:hover .quote-mark {
+      transform: scale(1.1);
+      color: var(--or);
+    }
     .quote-card p { font-size: 1.02rem; line-height: 1.85; color: var(--encre); }
     .quote-card p strong { color: var(--violet); }
     .quote-sig { margin-top: 28px; padding-top: 24px; border-top: 1px solid rgba(201,168,76,0.2); font-style: italic; color: var(--violet); font-size: 0.92rem; }
-    .quote-sig strong { font-style: normal; font-weight: 700; }
 
     /* ── GALERIE ── */
     .gallery {
@@ -317,28 +518,69 @@
       overflow: hidden;
       box-shadow: 0 8px 24px rgba(45,27,94,0.12);
       border: 1px solid rgba(201,168,76,0.15);
-      transition: transform 0.2s;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      cursor: pointer;
+      position: relative;
     }
-    .gal-item:hover { transform: translateY(-6px); }
-    .gal-item img { width: 100%; height: 200px; object-fit: cover; display: block; }
-    .gal-label { padding: 12px 14px; font-size: 0.83rem; font-weight: 600; color: var(--violet); }
+    .gal-item::after {
+      content: '🔍';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 2.5rem;
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      pointer-events: none;
+      z-index: 2;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .gal-item:hover::after {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    .gal-item:hover {
+      transform: translateY(-10px) scale(1.04);
+      box-shadow: 0 20px 50px rgba(45,27,94,0.25);
+      border-color: var(--or);
+    }
+    .gal-item img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/3;
+      object-fit: contain;
+      display: block;
+      background: #f5f0fa;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+    .gal-item:hover img { transform: scale(1.05); }
+    .gal-label { 
+      padding: 12px 14px; 
+      font-size: 0.83rem; 
+      font-weight: 600; 
+      color: var(--violet);
+      transition: all 0.3s ease;
+    }
+    .gal-item:hover .gal-label {
+      color: var(--or);
+      padding-left: 20px;
+    }
     .pdf-link { text-align: center; margin-top: 28px; }
-    .pdf-link a { color: var(--violet); font-weight: 600; font-size: 0.95rem; text-decoration: none; border-bottom: 2px solid var(--or); padding-bottom: 2px; }
-    .pdf-link a:hover { color: var(--violet-light); }
-
-    /* ── THÈMES ── */
-    .themes {
-      display: flex; flex-wrap: wrap; gap: 12px;
-      justify-content: center; margin-top: 32px;
-      max-width: 800px; margin-left: auto; margin-right: auto;
+    .pdf-link a { 
+      color: var(--violet); 
+      font-weight: 600; 
+      font-size: 0.95rem; 
+      text-decoration: none; 
+      border-bottom: 2px solid var(--or); 
+      padding-bottom: 2px;
+      transition: all 0.3s ease;
+      display: inline-block;
     }
-    .theme-tag {
-      background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.35);
-      color: white; border-radius: 40px; padding: 10px 22px;
-      font-size: 0.9rem; font-weight: 500;
-      display: inline-flex; align-items: center; gap: 8px;
+    .pdf-link a:hover { 
+      color: var(--violet-light);
+      transform: scale(1.05);
+      border-bottom-color: var(--or-light);
     }
-    .theme-tag i { color: var(--or-light); }
 
     /* ── CTA ── */
     .cta-bloc {
@@ -349,8 +591,24 @@
       max-width: 1000px; margin: 0 auto;
       border: 1px solid rgba(201,168,76,0.2);
       box-shadow: 0 20px 60px rgba(45,27,94,0.3);
+      transition: all 0.4s ease;
     }
-    .cta-text h2 { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--or-light); margin-bottom: 12px; }
+    .cta-bloc:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 30px 80px rgba(45,27,94,0.4);
+    }
+    .cta-text h2 { 
+      font-family: 'Playfair Display', serif; 
+      font-size: 2.2rem; 
+      font-weight: 700; 
+      color: var(--or-light); 
+      margin-bottom: 12px;
+      background: linear-gradient(90deg, var(--or-light), #FFD700, var(--or-light));
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: shimmer 4s linear infinite;
+    }
     .cta-text p { color: rgba(255,255,255,0.6); font-size: 1rem; margin-bottom: 28px; line-height: 1.6; }
     .cta-price { font-size: 2.8rem; font-weight: 700; color: white; margin-bottom: 28px; }
     .cta-price span { font-size: 1rem; font-weight: 400; opacity: 0.5; margin-left: 6px; }
@@ -360,15 +618,36 @@
       padding: 16px 36px; border-radius: 40px;
       font-weight: 700; font-size: 1.05rem;
       text-decoration: none; font-family: 'DM Sans', sans-serif;
-      transition: background 0.2s, transform 0.15s;
+      transition: all 0.3s ease;
       box-shadow: 0 8px 28px rgba(201,168,76,0.35);
     }
-    .btn-cta:hover { background: var(--or-light); transform: translateY(-2px); }
-    .cta-cover-wrap { display: flex; justify-content: center; }
+    .btn-cta:hover { 
+      background: var(--or-light); 
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 12px 40px rgba(201,168,76,0.5);
+    }
+    .cta-cover-wrap {
+      display: flex;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+    .cta-cover-wrap:hover {
+      transform: scale(1.05) rotate(-3deg);
+    }
     .cta-cover {
-      width: 180px; border-radius: 14px;
+      width: 180px;
+      height: auto;
+      aspect-ratio: auto;
+      border-radius: 14px;
       box-shadow: 0 16px 40px rgba(0,0,0,0.45), 0 0 0 3px rgba(201,168,76,0.4);
-      object-fit: cover; display: block;
+      object-fit: contain;
+      display: block;
+      pointer-events: none;
+      transition: all 0.4s ease;
+    }
+    .cta-cover-wrap:hover .cta-cover {
+      box-shadow: 0 20px 60px rgba(0,0,0,0.6), 0 0 0 4px rgba(201,168,76,0.6);
     }
     .cta-right { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; }
     .cta-stars { color: var(--or-light); font-size: 1.1rem; letter-spacing: 3px; }
@@ -378,6 +657,125 @@
     footer { background: var(--encre); color: rgba(255,255,255,0.4); text-align: center; padding: 40px 20px; font-size: 0.85rem; }
     .foot-logo { font-family: 'Playfair Display', serif; color: var(--or-light); font-size: 1.15rem; margin-bottom: 14px; }
     footer a { color: var(--or); text-decoration: none; }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      z-index: 9999;
+      justify-content: center;
+      align-items: center;
+      padding: 40px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .lightbox.active {
+      display: flex;
+      opacity: 1;
+    }
+    .lightbox-content {
+      max-width: 92vw;
+      max-height: 88vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 20px 80px rgba(0, 0, 0, 0.7);
+      border: 3px solid rgba(201,168,76,0.3);
+      animation: zoomIn 0.3s ease;
+    }
+    @keyframes zoomIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .lightbox-close {
+      position: fixed;
+      top: 30px;
+      right: 40px;
+      font-size: 2.5rem;
+      color: white;
+      cursor: pointer;
+      background: rgba(255,255,255,0.1);
+      border: 2px solid rgba(255,255,255,0.2);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      font-family: 'DM Sans', sans-serif;
+      z-index: 10000;
+    }
+    .lightbox-close:hover {
+      background: rgba(255,255,255,0.2);
+      transform: rotate(90deg);
+    }
+    .click-hint {
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      white-space: nowrap;
+      opacity: 0;
+      transition: opacity 0.3s;
+      pointer-events: none;
+    }
+    .hero-book-wrap:hover .click-hint,
+    .bio-img-wrap:hover .click-hint,
+    .cta-cover-wrap:hover .click-hint {
+      opacity: 1;
+    }
+
+    /* ── THEMES ── */
+    .themes {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      justify-content: center; margin-top: 32px;
+      max-width: 800px; margin-left: auto; margin-right: auto;
+    }
+    .theme-tag {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(201,168,76,0.35);
+      color: white; border-radius: 40px; padding: 10px 22px;
+      font-size: 0.9rem; font-weight: 500;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all 0.3s ease;
+    }
+    .theme-tag:hover {
+      background: rgba(255,255,255,0.15);
+      transform: scale(1.05) translateY(-2px);
+      border-color: var(--or);
+    }
+    .theme-tag i { color: var(--or-light); }
+
+    /* ── BOUTON RETOUR EN HAUT ── */
+    #backToTop {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--or);
+      color: var(--encre);
+      border: none;
+      border-radius: 50%;
+      width: 56px;
+      height: 56px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(201,168,76,0.4);
+      display: none;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    #backToTop:hover {
+      background: var(--or-light);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 28px rgba(201,168,76,0.5);
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
@@ -393,7 +791,14 @@
       .disc-row-bot { grid-template-columns: 1fr; max-width: 100%; }
       .feat-grid { grid-template-columns: repeat(3, 1fr); }
       .bio-grid { grid-template-columns: 1fr; text-align: center; gap: 36px; }
-      .author-avatar { max-width: 280px; aspect-ratio: 1; border-radius: 20px; margin: 0 auto; object-position: center; }
+      .author-avatar {
+        max-width: 280px;
+        aspect-ratio: 1;
+        object-fit: contain;
+        border-radius: 20px;
+        margin: 0 auto;
+        object-position: center;
+      }
       .bio-img-wrap::before { display: none; }
       .bio-quote { text-align: left; }
       .quote-card { padding: 32px 28px; }
@@ -401,6 +806,9 @@
       .gal-item:nth-child(4), .gal-item:nth-child(5) { display: none; }
       .cta-bloc { grid-template-columns: 1fr; padding: 40px 28px; text-align: center; }
       .cta-cover-wrap, .cta-right { display: none; }
+      .lightbox-content { max-width: 95vw; max-height: 70vh; }
+      .lightbox-close { top: 16px; right: 16px; width: 50px; height: 50px; font-size: 2rem; }
+      #backToTop { bottom: 20px; right: 20px; width: 48px; height: 48px; font-size: 1.2rem; }
     }
     @media (max-width: 600px) {
       .feat-grid { grid-template-columns: 1fr 1fr; }
@@ -438,7 +846,6 @@
     <div class="hero-glow-right" aria-hidden="true"></div>
 
     <div class="hero-inner">
-      <!-- Texte -->
       <div class="hero-text">
         <span class="hero-eyebrow"><i class="fas fa-star"></i> Développement personnel · Adolescents</span>
         <h1>Les Lois<br>de l'Univers<em>Version Ado</em></h1>
@@ -456,9 +863,9 @@
         </div>
       </div>
 
-      <!-- Visuel livre -->
+      <!-- Couverture du livre cliquable -->
       <div class="hero-visual">
-        <div class="hero-book-wrap">
+        <div class="hero-book-wrap" data-src="image/mainPage.jpeg" data-alt="Couverture Les Lois de l'Univers – Version Ado" role="button" tabindex="0" aria-label="Voir la couverture en grand">
           <div class="badge-pages">
             <strong>12</strong>clés<br>puissantes
           </div>
@@ -466,6 +873,7 @@
           <div class="badge-amazon">
             <i class="fab fa-amazon"></i> Disponible sur Amazon
           </div>
+          <span class="click-hint">👆 Cliquez pour agrandir</span>
         </div>
       </div>
     </div>
@@ -474,7 +882,7 @@
   <hr class="or-divider">
 
   <!-- INTRO -->
-  <section class="section">
+  <section class="section fade-in">
     <h2 class="section-title">Bienvenue dans ton aventure intérieure</h2>
     <p class="section-sub">Un guide conçu pour toi, ado, avec des mots simples et des outils puissants.</p>
     <div class="intro-bloc">
@@ -490,29 +898,29 @@
     <p class="section-sub">5 grandes thématiques pour te comprendre et avancer</p>
     <div class="disc-grid-wrap">
       <div class="disc-row disc-row-top">
-        <div class="disc-card">
+        <div class="disc-card fade-in fade-in-delay-1">
           <div class="disc-icon"><i class="fas fa-globe-asia"></i></div>
           <h3>Les lois de l'univers</h3>
           <p>Expliquées simplement, avec des illustrations tirées des animés (Pokémon, Dragon Ball…).</p>
         </div>
-        <div class="disc-card">
+        <div class="disc-card fade-in fade-in-delay-2">
           <div class="disc-icon"><i class="fas fa-bolt"></i></div>
           <h3>Mode d'emploi de l'énergie</h3>
           <p>Apprends à ressentir, diriger et utiliser ton énergie au quotidien.</p>
         </div>
-        <div class="disc-card">
+        <div class="disc-card fade-in fade-in-delay-3">
           <div class="disc-icon"><i class="fas fa-heart"></i></div>
           <h3>Gestion des émotions</h3>
           <p>Reconnaître, accueillir et transformer tes émotions pour mieux vivre.</p>
         </div>
       </div>
       <div class="disc-row disc-row-bot">
-        <div class="disc-card">
+        <div class="disc-card fade-in fade-in-delay-4">
           <div class="disc-icon"><i class="fas fa-lightbulb"></i></div>
           <h3>Imagination et créativité</h3>
           <p>Des techniques pour libérer ton potentiel créatif et imaginer ta meilleure vie.</p>
         </div>
-        <div class="disc-card">
+        <div class="disc-card fade-in fade-in-delay-5">
           <div class="disc-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Motivation et transmutation</h3>
           <p>Et bien d'autres outils pour ton développement personnel.</p>
@@ -528,12 +936,12 @@
     <h2 class="section-title">Pourquoi ce livre est différent ?</h2>
     <p class="section-sub">Une approche conçue spécifiquement pour les adolescents</p>
     <div class="feat-grid">
-      <div class="feat-item"><i class="fas fa-users feat-icon"></i><span>Exemples adaptés aux ados</span></div>
-      <div class="feat-item"><i class="fas fa-pen-alt feat-icon"></i><span>Exercices pratiques</span></div>
-      <div class="feat-item"><i class="fas fa-trophy feat-icon"></i><span>Défis de réflexion</span></div>
-      <div class="feat-item"><i class="fas fa-palette feat-icon"></i><span>Illustrations inspirantes</span></div>
-      <div class="feat-item"><i class="fas fa-mobile-alt feat-icon"></i><span>Références modernes</span></div>
-      <div class="feat-item"><i class="fas fa-smile feat-icon"></i><span>Simple et accessible</span></div>
+      <div class="feat-item fade-in fade-in-delay-1"><i class="fas fa-users feat-icon"></i><span>Exemples adaptés aux ados</span></div>
+      <div class="feat-item fade-in fade-in-delay-2"><i class="fas fa-pen-alt feat-icon"></i><span>Exercices pratiques</span></div>
+      <div class="feat-item fade-in fade-in-delay-3"><i class="fas fa-trophy feat-icon"></i><span>Défis de réflexion</span></div>
+      <div class="feat-item fade-in fade-in-delay-4"><i class="fas fa-palette feat-icon"></i><span>Illustrations inspirantes</span></div>
+      <div class="feat-item fade-in fade-in-delay-5"><i class="fas fa-mobile-alt feat-icon"></i><span>Références modernes</span></div>
+      <div class="feat-item fade-in fade-in-delay-6"><i class="fas fa-smile feat-icon"></i><span>Simple et accessible</span></div>
     </div>
   </section>
 
@@ -542,10 +950,11 @@
     <h2 class="section-title">L'auteure</h2>
     <p class="section-sub">Une passionnée au service du développement des jeunes</p>
     <div class="bio-grid">
-      <div class="bio-img-wrap">
+      <div class="bio-img-wrap fade-in" data-src="image/dosImage.jpeg" data-alt="Irène Gwladys Cotchoing" role="button" tabindex="0" aria-label="Voir la photo de l'auteure en grand">
         <img class="author-avatar" src="image/dosImage.jpeg" alt="Irène Gwladys Cotchoing">
+        <span class="click-hint">👆 Cliquez pour agrandir</span>
       </div>
-      <div>
+      <div class="fade-in fade-in-delay-2">
         <div class="author-name">Irène Gwladys Cotchoing</div>
         <div class="author-role">Auxiliaire d'éducation · Auteure</div>
         <p class="bio-text">Passionnée par le développement personnel, j'accompagne les enfants et les adolescents dans leur évolution personnelle. À travers mes ouvrages, je souhaite transmettre des outils simples permettant de mieux se connaître, de développer sa confiance et de comprendre le monde qui nous entoure.</p>
@@ -559,7 +968,7 @@
   <!-- MOT DE L'AUTEURE -->
   <section class="section bg-gris">
     <h2 class="section-title">Un mot de l'auteure</h2>
-    <div class="quote-card">
+    <div class="quote-card fade-in">
       <span class="quote-mark">"</span>
       <p>Et si tu détenais déjà les clés pour comprendre ta vie… et la transformer ?<br><br>
       Tu te poses des questions sur qui tu es ? Tu ressens parfois des émotions fortes sans vraiment les comprendre ? Tu aimerais avoir plus confiance en toi ?<br><br>
@@ -576,25 +985,25 @@
   <section class="section">
     <h2 class="section-title">Quelques pages du livre</h2>
     <p class="section-sub">Un aperçu de l'intérieur</p>
-    <div class="gallery">
-      <div class="gal-item">
-        <img src="image/mainPage.jpeg" alt="Couverture">
+    <div class="gallery" id="gallery">
+      <div class="gal-item fade-in fade-in-delay-1" data-src="image/mainPage.jpeg" data-label="Couverture">
+        <img src="image/mainPage.jpeg" alt="Couverture" loading="lazy">
         <div class="gal-label">Couverture</div>
       </div>
-      <div class="gal-item">
-        <img src="image/extrai1.jpeg" alt="Introduction">
+      <div class="gal-item fade-in fade-in-delay-2" data-src="image/extrai1.jpeg" data-label="Introduction">
+        <img src="image/extrai1.jpeg" alt="Introduction" loading="lazy">
         <div class="gal-label">Introduction</div>
       </div>
-      <div class="gal-item">
-        <img src="image/extrai2.jpeg" alt="Exercice pratique">
+      <div class="gal-item fade-in fade-in-delay-3" data-src="image/extrai2.jpeg" data-label="Page Illustration">
+        <img src="image/extrai2.jpeg" alt="Exercice pratique" loading="lazy">
         <div class="gal-label">Page Illustration</div>
       </div>
-      <div class="gal-item">
-        <img src="image/extrai3.jpeg" alt="Illustration">
-        <div class="gal-label">physique quantique</div>
+      <div class="gal-item fade-in fade-in-delay-4" data-src="image/extrai3.jpeg" data-label="Physique Quantique">
+        <img src="image/extrai3.jpeg" alt="Illustration" loading="lazy">
+        <div class="gal-label">Physique quantique</div>
       </div>
-      <div class="gal-item">
-        <img src="image/dosImage.jpeg" alt="Quatrième de couverture">
+      <div class="gal-item fade-in fade-in-delay-5" data-src="image/dosImage.jpeg" data-label="Dos &amp; quatrième">
+        <img src="image/dosImage.jpeg" alt="Quatrième de couverture" loading="lazy">
         <div class="gal-label">Dos &amp; quatrième</div>
       </div>
     </div>
@@ -607,19 +1016,19 @@
   <section class="section bg-violet">
     <h2 class="section-title">Pour celles et ceux qui veulent</h2>
     <div class="themes">
-      <span class="theme-tag"><i class="fas fa-star"></i> Confiance en soi</span>
-      <span class="theme-tag"><i class="fas fa-brain"></i> Gérer ses émotions</span>
-      <span class="theme-tag"><i class="fas fa-bullseye"></i> Se motiver</span>
-      <span class="theme-tag"><i class="fas fa-comment-dots"></i> Faire face au harcèlement</span>
-      <span class="theme-tag"><i class="fas fa-heart"></i> Se respecter</span>
-      <span class="theme-tag"><i class="fas fa-handshake"></i> S'inclure</span>
-      <span class="theme-tag"><i class="fas fa-seedling"></i> Grandir sereinement</span>
+      <span class="theme-tag fade-in fade-in-delay-1"><i class="fas fa-star"></i> Confiance en soi</span>
+      <span class="theme-tag fade-in fade-in-delay-2"><i class="fas fa-brain"></i> Gérer ses émotions</span>
+      <span class="theme-tag fade-in fade-in-delay-3"><i class="fas fa-bullseye"></i> Se motiver</span>
+      <span class="theme-tag fade-in fade-in-delay-4"><i class="fas fa-comment-dots"></i> Faire face au harcèlement</span>
+      <span class="theme-tag fade-in fade-in-delay-5"><i class="fas fa-heart"></i> Se respecter</span>
+      <span class="theme-tag fade-in fade-in-delay-6"><i class="fas fa-handshake"></i> S'inclure</span>
+      <span class="theme-tag fade-in fade-in-delay-7"><i class="fas fa-seedling"></i> Grandir sereinement</span>
     </div>
   </section>
 
-  <!-- CTA COMMANDER -->
+  <!-- CTA -->
   <section class="section" id="commander">
-    <div class="cta-bloc">
+    <div class="cta-bloc fade-in">
       <div class="cta-text">
         <h2>Prêt·e à découvrir les Lois de l'Univers ?</h2>
         <p>Un guide essentiel pour apprendre, transmuter et comprendre son énergie intérieure.</p>
@@ -628,8 +1037,9 @@
           <i class="fab fa-amazon"></i> Acheter sur Amazon
         </a>
       </div>
-      <div class="cta-cover-wrap">
+      <div class="cta-cover-wrap" data-src="image/mainPage.jpeg" data-alt="Couverture" role="button" tabindex="0" aria-label="Voir la couverture en grand">
         <img class="cta-cover" src="image/mainPage.jpeg" alt="Couverture">
+        <span class="click-hint">👆 Cliquez pour agrandir</span>
       </div>
       <div class="cta-right">
         <div class="cta-stars">★ ★ ★ ★ ★</div>
@@ -647,6 +1057,154 @@
   <p style="margin-top: 8px;"><a href="#">Mentions légales</a> &nbsp;·&nbsp; <a href="mailto:cotchoingirene@gmail.com">Contact</a></p>
   <p style="margin-top: 10px; font-size: 0.82rem; opacity: 0.6;"><a href="mailto:cotchoingirene@gmail.com" style="color: var(--or);">cotchoingirene@gmail.com</a></p>
 </footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Agrandissement d'image">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Fermer">✕</button>
+  <img class="lightbox-content" id="lightboxImage" src="" alt="Agrandissement">
+</div>
+
+<!-- BOUTON RETOUR EN HAUT -->
+<button id="backToTop" aria-label="Retour en haut de page">↑</button>
+
+<!-- ═══ JAVASCRIPT ═══ -->
+<script>
+  (function() {
+    // ── Lightbox ──
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImage = document.getElementById('lightboxImage');
+    const lightboxClose = document.getElementById('lightboxClose');
+
+    function openLightbox(src, alt) {
+      if (!src) return;
+      lightboxImage.setAttribute('src', src);
+      lightboxImage.setAttribute('alt', alt || 'Image agrandie');
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Galerie
+    document.querySelectorAll('.gal-item').forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const img = this.querySelector('img');
+        if (img) {
+          const src = this.dataset.src || img.src;
+          const alt = img.alt || 'Image de la galerie';
+          openLightbox(src, alt);
+        }
+      });
+    });
+
+    // Couverture du hero
+    const heroBook = document.querySelector('.hero-book-wrap');
+    if (heroBook) {
+      heroBook.addEventListener('click', function(e) {
+        e.preventDefault();
+        const img = this.querySelector('.hero-cover');
+        if (img) {
+          const src = this.dataset.src || img.src;
+          const alt = this.dataset.alt || img.alt || 'Couverture du livre';
+          openLightbox(src, alt);
+        }
+      });
+      heroBook.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    }
+
+    // Photo de l'auteure
+    const bioImg = document.querySelector('.bio-img-wrap');
+    if (bioImg) {
+      bioImg.addEventListener('click', function(e) {
+        e.preventDefault();
+        const img = this.querySelector('.author-avatar');
+        if (img) {
+          const src = this.dataset.src || img.src;
+          const alt = this.dataset.alt || img.alt || 'Photo de l\'auteure';
+          openLightbox(src, alt);
+        }
+      });
+      bioImg.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    }
+
+    // Couverture de la CTA
+    const ctaCover = document.querySelector('.cta-cover-wrap');
+    if (ctaCover) {
+      ctaCover.addEventListener('click', function(e) {
+        e.preventDefault();
+        const img = this.querySelector('.cta-cover');
+        if (img) {
+          const src = this.dataset.src || img.src;
+          const alt = this.dataset.alt || img.alt || 'Couverture du livre';
+          openLightbox(src, alt);
+        }
+      });
+      ctaCover.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    }
+
+    // Fermeture
+    lightboxClose.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === this) closeLightbox();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('active')) {
+        closeLightbox();
+      }
+    });
+
+    // ── Bouton Retour en haut ──
+    const backBtn = document.getElementById('backToTop');
+    
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 500) {
+        backBtn.style.display = 'block';
+      } else {
+        backBtn.style.display = 'none';
+      }
+    });
+
+    backBtn.addEventListener('click', function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // ── Animation au scroll (Intersection Observer) ──
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+  })();
+</script>
 
 </body>
 </html>
